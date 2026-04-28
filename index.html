@@ -1,0 +1,1225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marten Laudi · Assistant Professor of Finance</title>
+<meta name="description" content="Marten Laudi is an Assistant Professor of Finance at Kühne Logistics University Hamburg, researching behavioral and sustainable finance.">
+<style>
+  :root {
+    --bg: #ffffff;
+    --bg-soft: #f7f8fa;
+    --bg-pattern: #fafbfc;
+    --text: #1a1f2e;
+    --text-muted: #5a6478;
+    --accent: #1e3a5f;
+    --accent-soft: #e8eef5;
+    --accent-hover: #2a4d7a;
+    --border: #e4e7ec;
+    --card: #ffffff;
+    --shadow: 0 1px 3px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.06);
+    --shadow-hover: 0 4px 12px rgba(0,0,0,0.08);
+    --radius: 8px;
+    --max-width: 1100px;
+    --green: #2d6a4f;
+    --orange: #c46a3d;
+    --teal: #2c6e7f;
+    --purple: #5a3d7a;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: var(--text);
+    background: var(--bg);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    font-size: 16px;
+  }
+
+  a { color: var(--accent); text-decoration: none; transition: color 0.2s; }
+  a:hover { color: var(--accent-hover); text-decoration: underline; }
+
+  /* Navigation */
+  nav {
+    position: sticky;
+    top: 0;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+    z-index: 100;
+  }
+  .nav-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .nav-name {
+    font-weight: 600;
+    font-size: 1.05rem;
+    color: var(--text);
+  }
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+  .nav-links a {
+    color: var(--text-muted);
+    font-weight: 500;
+    font-size: 0.95rem;
+  }
+  .nav-links a:hover {
+    color: var(--accent);
+    text-decoration: none;
+  }
+  .menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: var(--text);
+  }
+
+  /* Hero with Hamburg/KLU background */
+  .hero-wrap {
+    background:
+      linear-gradient(rgba(255,255,255,0.88), rgba(255,255,255,0.82)),
+      url("klu-hamburg.jpg") center/cover no-repeat;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-wrap::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at 20% 30%, rgba(30, 58, 95, 0.10), transparent 45%),
+      radial-gradient(circle at 80% 70%, rgba(45, 106, 79, 0.10), transparent 45%),
+      radial-gradient(circle at 60% 20%, rgba(196, 106, 61, 0.06), transparent 40%);
+    background-size: 200% 200%;
+    animation: heroGradient 18s ease-in-out infinite;
+    pointer-events: none;
+    mix-blend-mode: multiply;
+  }
+  @keyframes heroGradient {
+    0%, 100% { background-position: 0% 0%, 100% 100%, 50% 0%; }
+    50%      { background-position: 100% 50%, 0% 50%, 50% 100%; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .hero-wrap::after { animation: none; }
+  }
+  .hero-wrap::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.4) 100%);
+    pointer-events: none;
+  }
+  .hero {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 5rem 2rem 5rem;
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    gap: 3rem;
+    align-items: start;
+    position: relative;
+  }
+  .hero h1 {
+    font-size: 2.75rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.5rem;
+    color: var(--text);
+  }
+  .hero .subtitle {
+    font-size: 1.15rem;
+    color: var(--accent);
+    font-weight: 500;
+    margin-bottom: 2rem;
+  }
+  .hero p {
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+    line-height: 1.7;
+  }
+  .hero-photo {
+    width: 260px;
+    height: 320px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, var(--accent-soft) 0%, #d4d9e0 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    box-shadow: 0 12px 32px rgba(30, 58, 95, 0.18);
+    overflow: hidden;
+  }
+  .hero-photo img { width: 100%; height: 100%; object-fit: cover; }
+
+  .social-links {
+    display: flex;
+    gap: 0.6rem;
+    margin-top: 1.75rem;
+    flex-wrap: wrap;
+  }
+  .social-links a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.55rem 1.1rem;
+    background: rgba(255,255,255,0.7);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    color: var(--text);
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.2s;
+    backdrop-filter: blur(4px);
+  }
+  .social-links a:hover {
+    background: var(--accent);
+    color: white;
+    border-color: var(--accent);
+    text-decoration: none;
+    transform: translateY(-1px);
+  }
+  .social-links svg { width: 16px; height: 16px; }
+
+  /* Stats strip */
+  .stats {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 2rem;
+    transform: translateY(-2rem);
+  }
+  .stats-inner {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+    padding: 1.5rem 2rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+  }
+  .stat {
+    text-align: center;
+    border-right: 1px solid var(--border);
+  }
+  .stat:last-child { border-right: none; }
+  .stat-num {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: -0.01em;
+  }
+  .stat-label {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-top: 0.25rem;
+    font-weight: 500;
+  }
+
+  /* Sections */
+  section {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 4rem 2rem;
+  }
+  section + section { border-top: 1px solid var(--border); }
+  section h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.01em;
+  }
+  section .section-intro {
+    color: var(--text-muted);
+    margin-bottom: 2.5rem;
+    font-size: 1rem;
+    max-width: 720px;
+  }
+
+  .subsection-title {
+    color: var(--accent);
+    margin: 2.5rem 0 1.25rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--border);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 0.85rem;
+    font-weight: 600;
+  }
+  .subsection-title:first-of-type { margin-top: 0; }
+
+  /* Paper cards */
+  .paper {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    margin-bottom: 1.5rem;
+    box-shadow: var(--shadow);
+    transition: box-shadow 0.2s, transform 0.2s;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 200px 1fr;
+  }
+  .paper:hover {
+    box-shadow: var(--shadow-hover);
+  }
+  .paper-figure {
+    background: var(--bg-soft);
+    border-right: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    min-height: 100%;
+  }
+  .paper-figure svg { width: 100%; height: auto; max-height: 160px; }
+  .paper-body {
+    padding: 1.5rem 1.75rem;
+  }
+  .paper-title {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 0.4rem;
+    line-height: 1.4;
+  }
+  .paper-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+    align-items: center;
+  }
+  .paper-venue {
+    font-style: italic;
+    color: var(--accent);
+    font-weight: 500;
+    font-size: 0.95rem;
+  }
+  .paper-tag {
+    display: inline-block;
+    background: var(--accent-soft);
+    color: var(--accent);
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 500;
+  }
+  .paper-authors {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 0.85rem;
+  }
+  .paper-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+  }
+  .paper-links a, .paper-links button {
+    font-size: 0.85rem;
+    padding: 0.35rem 0.85rem;
+    background: var(--bg-soft);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    color: var(--accent);
+    font-weight: 500;
+    transition: all 0.2s;
+    cursor: pointer;
+    font-family: inherit;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+  }
+  .paper-links a:hover, .paper-links button:hover {
+    background: var(--accent);
+    color: white;
+    border-color: var(--accent);
+    text-decoration: none;
+  }
+  .paper-links svg { width: 14px; height: 14px; }
+  .abstract-toggle {
+    background: none;
+    border: none;
+    color: var(--accent);
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 0.25rem 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: inherit;
+  }
+  .abstract-toggle:hover { text-decoration: underline; }
+  .abstract-toggle .arrow {
+    display: inline-block;
+    transition: transform 0.2s;
+    font-size: 0.7rem;
+  }
+  .abstract-toggle.open .arrow { transform: rotate(90deg); }
+  .abstract {
+    display: none;
+    margin-top: 0.75rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--border);
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+  .abstract.open { display: block; }
+  .abstract p { margin-bottom: 0.75rem; }
+  .abstract p:last-child { margin-bottom: 0; }
+  .abstract strong { color: var(--text); }
+
+  /* Modal */
+  .modal-backdrop {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(20, 30, 50, 0.5);
+    z-index: 200;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+  }
+  .modal-backdrop.open { display: flex; }
+  .modal {
+    background: white;
+    border-radius: var(--radius);
+    max-width: 600px;
+    width: 100%;
+    max-height: 80vh;
+    overflow: auto;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+  }
+  .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 1.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .modal-header h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+  }
+  .modal-close {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: var(--text-muted);
+    line-height: 1;
+    padding: 0.25rem 0.5rem;
+  }
+  .modal-close:hover { color: var(--text); }
+  .modal-body {
+    padding: 1.5rem;
+  }
+  .bibtex {
+    background: #0d1421;
+    color: #d4dae5;
+    padding: 1.25rem;
+    border-radius: 6px;
+    font-family: "SF Mono", Monaco, "Cascadia Code", "Roboto Mono", Consolas, monospace;
+    font-size: 0.85rem;
+    line-height: 1.6;
+    white-space: pre;
+    overflow-x: auto;
+    margin-bottom: 1rem;
+  }
+  .copy-btn {
+    background: var(--accent);
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 0.9rem;
+    transition: background 0.2s;
+  }
+  .copy-btn:hover { background: var(--accent-hover); }
+  .copy-btn.copied { background: var(--green); }
+
+  /* Teaching */
+  .course-group {
+    display: grid;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+  }
+  .course {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    border-left: 3px solid var(--accent);
+    overflow: hidden;
+  }
+  .course-header {
+    padding: 1rem 1.5rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    transition: background 0.15s;
+    user-select: none;
+  }
+  .course-header:hover {
+    background: var(--bg-soft);
+  }
+  .course-header-text {
+    flex: 1;
+    min-width: 0;
+  }
+  .course-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin-bottom: 0.2rem;
+  }
+  .course-info {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+  }
+  .course-arrow {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    transition: transform 0.2s;
+    flex-shrink: 0;
+  }
+  .course.open .course-arrow {
+    transform: rotate(90deg);
+  }
+  .course-desc {
+    display: none;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.65;
+    padding: 0 1.5rem 1.25rem;
+    border-top: 1px solid var(--border);
+    padding-top: 1rem;
+  }
+  .course.open .course-desc {
+    display: block;
+  }
+  .rating-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%);
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    font-weight: 500;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 12px rgba(30, 58, 95, 0.2);
+  }
+
+  /* Contact */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    background: var(--bg-soft);
+    padding: 2rem;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+  }
+  .contact-block strong {
+    display: block;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+  }
+  .contact-block p, .contact-block a {
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+
+  /* Footer */
+  footer {
+    max-width: var(--max-width);
+    margin: 3rem auto 0;
+    padding: 2rem;
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    border-top: 1px solid var(--border);
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .hero {
+      grid-template-columns: 1fr;
+      padding: 3rem 1.5rem 2rem;
+      gap: 2rem;
+    }
+    .hero h1 { font-size: 1.85rem; }
+    .hero-photo { width: 200px; height: 250px; margin: 0 auto; }
+    .nav-inner { padding: 1rem 1.5rem; }
+    .nav-links {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: white;
+      flex-direction: column;
+      padding: 1rem 1.5rem;
+      gap: 1rem;
+      border-bottom: 1px solid var(--border);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.04);
+    }
+    .nav-links.open { display: flex; }
+    .menu-toggle { display: block; }
+    section { padding: 3rem 1.5rem; }
+    section h2 { font-size: 1.5rem; }
+    .contact-grid { grid-template-columns: 1fr; }
+    .stats-inner { grid-template-columns: repeat(2, 1fr); gap: 1rem; padding: 1.25rem; }
+    .stat { border-right: none; }
+    .stat:nth-child(odd) { border-right: 1px solid var(--border); }
+    .paper { grid-template-columns: 1fr; }
+    .paper-figure { border-right: none; border-bottom: 1px solid var(--border); padding: 1.25rem; }
+    .paper-figure svg { max-height: 120px; }
+    .paper-body { padding: 1.25rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <div class="nav-name">Marten Laudi</div>
+    <button class="menu-toggle" aria-label="Toggle menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#teaching">Teaching</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="hero-wrap">
+  <header class="hero" id="about">
+    <div>
+      <h1>Marten Laudi</h1>
+      <div class="subtitle">Assistant Professor of Finance · Kühne Logistics University</div>
+      <p>I am an Assistant Professor of Finance at Kühne Logistics University (KLU) Hamburg, and a Junior Fellow at Netspar.</p>
+      <p>Before joining KLU, I was a Postdoctoral Researcher at the University of Bremen and a PhD candidate at Maastricht University.</p>
+      <p>My research focuses on the behavior of retail investors and finance professionals. I work mainly in sustainable and behavioral finance, combining lab experiments, field experiments, and archival data.</p>
+      <div class="social-links">
+        <a href="mailto:marten.laudi@klu.org">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          Email
+        </a>
+        <a href="https://scholar.google.de/citations?user=VymHVAYAAAAJ&hl=de" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/></svg>
+          Google Scholar
+        </a>
+        <a href="https://papers.ssrn.com/sol3/cf_dev/AbsByAuth.cfm?per_id=3409261" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          SSRN
+        </a>
+        <a href="https://www.linkedin.com/in/marten-laudi-03668b129/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.063 2.063 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          LinkedIn
+        </a>
+      </div>
+    </div>
+    <div class="hero-photo">
+    <img src="photo.jpg" alt="Marten Laudi">
+    </div>
+  </header>
+</div>
+
+<div class="stats" style="display:none;">
+  <div class="stats-inner">
+    <div class="stat">
+      <div class="stat-num">2</div>
+      <div class="stat-label">Publications</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">3</div>
+      <div class="stat-label">Working Papers</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">8.7</div>
+      <div class="stat-label">Teaching Rating</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">6+</div>
+      <div class="stat-label">Journals Refereed</div>
+    </div>
+  </div>
+</div>
+
+<section id="research">
+  <h2>Research</h2>
+  <p class="section-intro">Empirical research on retail investors and finance professionals, with a focus on sustainable finance, behavioral finance, and household finance.</p>
+
+  <div class="subsection-title">Publications</div>
+
+  <article class="paper">
+    <div class="paper-figure">
+      <!-- Figure: sustainability premium -->
+      <svg viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg">
+        <rect x="20" y="100" width="30" height="40" fill="#1e3a5f" opacity="0.3" rx="2"/>
+        <rect x="60" y="70" width="30" height="70" fill="#1e3a5f" opacity="0.6" rx="2"/>
+        <rect x="100" y="50" width="30" height="90" fill="#2d6a4f" opacity="0.7" rx="2"/>
+        <rect x="140" y="30" width="30" height="110" fill="#2d6a4f" rx="2"/>
+        <text x="35" y="155" font-size="8" fill="#5a6478" text-anchor="middle">Conv.</text>
+        <text x="75" y="155" font-size="8" fill="#5a6478" text-anchor="middle">Conv.+</text>
+        <text x="115" y="155" font-size="8" fill="#5a6478" text-anchor="middle">Sust.</text>
+        <text x="155" y="155" font-size="8" fill="#5a6478" text-anchor="middle">Sust.+</text>
+        <text x="100" y="20" font-size="9" fill="#1a1f2e" text-anchor="middle" font-weight="600">Advisor Fees</text>
+        <line x1="15" y1="140" x2="185" y2="140" stroke="#5a6478" stroke-width="0.5"/>
+      </svg>
+    </div>
+    <div class="paper-body">
+      <div class="paper-title">Do Financial Advisors Charge Sustainable Investors a Premium?</div>
+      <div class="paper-meta">
+        <span class="paper-venue">Management Science</span>
+        <span class="paper-tag">Lab-in-the-field experiment</span>
+      </div>
+      <div class="paper-authors">with Paul Smeets and Utz Weitzel</div>
+      <div class="paper-links">
+        <a href="https://pubsonline.informs.org/doi/abs/10.1287/mnsc.2025.00232" target="_blank" rel="noopener">Paper</a>
+        <a href="https://www.socialscienceregistry.org/trials/6026" target="_blank" rel="noopener">Pre-registration</a>
+        <a href="https://www.youtube.com/watch?v=SUOTGOo_spI&t=84s" target="_blank" rel="noopener">Video</a>
+        <button onclick="showCite('cite-1')">Cite</button>
+      </div>
+      <button class="abstract-toggle" onclick="toggleAbstract(this)"><span class="arrow">▶</span> Abstract</button>
+      <div class="abstract">
+        <p>Despite growing regulatory concerns about potential overcharging of sustainable investors, empirical evidence is lacking. In two controlled laboratory-in-the-field experiments with 415 professional financial advisors from Europe and the United States, and an incentivized survey, we identify two distinct but interacting effects. First, advisors charge sustainable investors a premium. This premium persists even when accounting for differences in skill, effort, and costs. Second, advisors impose higher fees on clients with low financial literacy. These factors interact: sustainable investors with low financial literacy are charged the highest fee, whereas those with high financial literacy do not pay a sustainability premium. Our findings suggest that advisors extract additional fees for sustainable investment mandates but avoid overcharging sustainable investors with high financial literacy.</p>
+        <p><strong>Presentations:</strong> Western Finance Association 2023, GRASFI Conference 2024, Experimental Finance Conference 2021, Research in Behavioral Finance Conference 2022, ERNOP Conference 2021, University of Bremen, Erasmus School of Economics, Leibniz Institute SAFE, Utrecht University, University of Innsbruck, Radboud University, University of Helsinki, Aston Business School, University of Kassel, University of Montpellier, University of Maastricht, briq Institute, University of Zurich, University of Rome.</p>
+        <p><strong>Media:</strong> <a href="https://www.businessinsider.nl/duurzaam-beleggen-duurder-financieel-advies-beleggingsfonds-niet-groen/" target="_blank" rel="noopener">Business Insider NL</a>, <a href="https://www.bnr.nl/nieuws/financieel/10495747/duurzame-belegger-vaak-duurder-uit" target="_blank" rel="noopener">BNR Nieuwsradio</a></p>
+      </div>
+    </div>
+  </article>
+
+  <article class="paper">
+    <div class="paper-figure">
+      <!-- Figure: temporal framing tax -->
+      <svg viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="50" cy="80" r="28" fill="#1e3a5f" opacity="0.15"/>
+        <circle cx="100" cy="80" r="28" fill="#1e3a5f" opacity="0.4"/>
+        <circle cx="150" cy="80" r="28" fill="#1e3a5f" opacity="0.7"/>
+        <text x="50" y="84" font-size="11" fill="#1e3a5f" text-anchor="middle" font-weight="700">€/mo</text>
+        <text x="100" y="84" font-size="11" fill="#1e3a5f" text-anchor="middle" font-weight="700">€/yr</text>
+        <text x="150" y="84" font-size="10" fill="white" text-anchor="middle" font-weight="700">€/10yr</text>
+        <text x="50" y="125" font-size="8" fill="#5a6478" text-anchor="middle">spend ↑</text>
+        <text x="100" y="125" font-size="8" fill="#5a6478" text-anchor="middle">save ↑</text>
+        <text x="150" y="125" font-size="8" fill="#5a6478" text-anchor="middle">save ↑↑</text>
+        <text x="100" y="25" font-size="9" fill="#1a1f2e" text-anchor="middle" font-weight="600">Temporal Framing</text>
+      </svg>
+    </div>
+    <div class="paper-body">
+      <div class="paper-title">Temporal Framing of Tax Stimuli and Household Consumption</div>
+      <div class="paper-meta">
+        <span class="paper-venue">Journal of Economic Behavior and Organization</span>
+        <span class="paper-tag">Survey experiment</span>
+      </div>
+      <div class="paper-authors">with Thomas Pauls</div>
+      <div class="paper-links">
+        <a href="https://www.sciencedirect.com/science/article/pii/S0167268125001982" target="_blank" rel="noopener">Open access</a>
+        <button onclick="showCite('cite-2')">Cite</button>
+      </div>
+      <button class="abstract-toggle" onclick="toggleAbstract(this)"><span class="arrow">▶</span> Abstract</button>
+      <div class="abstract">
+        <p>We conduct a large-scale survey experiment with clients of a major German retail bank to examine whether the temporal framing of a tax stimulus as a permanent positive income shock affects consumption behavior. The income shock derives from the abolishment of the German solidarity surcharge on personal income taxes. Participants are randomly assigned to receive information about their additional disposable income in one of three formats: Euros per month (control), Euros per year (yearly treatment), or Euros per ten-year period (10-yearly treatment).</p>
+        <p>We find a statistically and economically significant impact of temporal framing on the intended use of the tax cut. The yearly and 10-yearly treatment groups' average intended share of the tax cut for spending is 8.0 and 9.4 percentage points lower, and for saving is 5.4 and 6.3 percentage points higher, compared to the control group. A follow-up survey six months after the tax rebate came into effect reveals that participants largely adhered to their intentions. Treatment effects are particularly pronounced for larger tax cuts and among participants with low financial literacy and low cognitive reflection.</p>
+        <p><strong>Media:</strong> <a href="https://www.spiegel.de/wirtschaft/soziales/deutschland-soli-abschaffung-schiebt-konsum-nur-wenig-an-a-736c4b79-20e8-411b-8607-aa9eb914f6d6" target="_blank" rel="noopener">Spiegel Online</a></p>
+      </div>
+    </div>
+  </article>
+
+  <div class="subsection-title">Working Papers</div>
+
+  <article class="paper">
+    <div class="paper-figure">
+      <!-- Figure: podcasts moving market -->
+      <svg viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="40" cy="80" r="20" fill="#1e3a5f" opacity="0.2"/>
+        <circle cx="40" cy="80" r="14" fill="#1e3a5f" opacity="0.4"/>
+        <circle cx="40" cy="80" r="8" fill="#1e3a5f"/>
+        <path d="M 40 80 Q 80 60, 100 70 T 180 50" stroke="#2d6a4f" stroke-width="2" fill="none"/>
+        <circle cx="100" cy="70" r="3" fill="#2d6a4f"/>
+        <circle cx="140" cy="58" r="3" fill="#2d6a4f"/>
+        <circle cx="180" cy="50" r="3" fill="#2d6a4f"/>
+        <text x="100" y="135" font-size="9" fill="#5a6478" text-anchor="middle">stock turnover ↑</text>
+        <text x="100" y="25" font-size="9" fill="#1a1f2e" text-anchor="middle" font-weight="600">Podcast Coverage</text>
+        <line x1="20" y1="115" x2="190" y2="115" stroke="#5a6478" stroke-width="0.5"/>
+      </svg>
+    </div>
+    <div class="paper-body">
+      <div class="paper-title">Do Podcasts Move the Stock Market?</div>
+      <div class="paper-meta">
+        <span class="paper-tag">Empirical study with novel dataset</span>
+      </div>
+      <div class="paper-authors">with Janik Ole Wecks</div>
+      <div class="paper-links">
+        <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6583260" target="_blank" rel="noopener">Current version</a>
+        <button onclick="showCite('cite-3')">Cite</button>
+      </div>
+      <button class="abstract-toggle" onclick="toggleAbstract(this)"><span class="arrow">▶</span> Abstract</button>
+      <div class="abstract">
+        <p>We construct a large dataset of transcribed investing podcast episodes and identify over 100,000 time-stamped discussions on individual stocks to study how this coverage relates to trading activity and investor outcomes. Podcast discussions are associated with significant increases in stock-level turnover, retail trading among Robinhood users, and absolute returns. Effects are largest on the day of release and persist on subsequent days. Responses are larger for podcasts with greater audience reach and for discussions that are forward-looking or contain explicit buy or sell recommendations.</p>
+        <p>Investor reactions to earnings announcements are substantially amplified when these events are accompanied by podcast coverage, consistent with podcasts facilitating the diffusion and interpretation of publicly available information. Trading responses are most pronounced among retail investors, who face higher information frictions. We find no evidence that trading strategies based on podcast content consistently outperform passive benchmarks. Instead, such strategies often underperform at realistic implementation horizons. Our results suggest that investing podcasts accelerate the incorporation of publicly available information into prices rather than providing an exploitable information advantage.</p>
+      </div>
+    </div>
+  </article>
+
+  <article class="paper">
+    <div class="paper-figure">
+      <!-- Figure: dirty money -->
+      <svg viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg">
+        <rect x="40" y="60" width="50" height="35" rx="4" fill="#2d6a4f" opacity="0.5"/>
+        <text x="65" y="82" font-size="11" fill="white" text-anchor="middle" font-weight="700">€</text>
+        <path d="M 95 78 L 115 78" stroke="#c46a3d" stroke-width="2" marker-end="url(#arrow)"/>
+        <defs>
+          <marker id="arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+            <polygon points="0 0, 6 3, 0 6" fill="#c46a3d"/>
+          </marker>
+        </defs>
+        <rect x="120" y="55" width="55" height="45" rx="4" fill="#c46a3d" opacity="0.7"/>
+        <text x="148" y="74" font-size="9" fill="white" text-anchor="middle" font-weight="600">spend</text>
+        <text x="148" y="88" font-size="9" fill="white" text-anchor="middle" font-weight="600">↑↑</text>
+        <text x="65" y="115" font-size="8" fill="#5a6478" text-anchor="middle">controv. dividend</text>
+        <text x="148" y="120" font-size="8" fill="#5a6478" text-anchor="middle">consumption</text>
+        <text x="100" y="25" font-size="9" fill="#1a1f2e" text-anchor="middle" font-weight="600">ESG News & Spending</text>
+      </svg>
+    </div>
+    <div class="paper-body">
+      <div class="paper-title">Dirty Money: The Impact of Negative ESG News Sentiment on Dividend Consumption</div>
+      <div class="paper-meta">
+        <span class="paper-tag">Empirical study with archival data</span>
+      </div>
+      <div class="paper-authors">with Thomas Pauls and Paul Smeets</div>
+      <div class="paper-links">
+        <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4574351" target="_blank" rel="noopener">Current version</a>
+        <button onclick="showCite('cite-4')">Cite</button>
+      </div>
+      <button class="abstract-toggle" onclick="toggleAbstract(this)"><span class="arrow">▶</span> Abstract</button>
+      <div class="abstract">
+        <p>Using a large European bank dataset, we show that in response to negative ESG news exposing controversial business practices of dividend-paying firms, investors amplify their consumption from dividend income, compared to dividends from non-controversial firms. This increased consumption is immediate, occurring on the dividend payout day. We control for selection effects and rule out attention and adjustments to the dividend payout size as mechanisms.</p>
+        <p>Instead, our results are consistent with laboratory evidence showing that people who earn money by violating social norms counter resulting negative emotions with mood-enhancing behavior, such as increased consumption. This aligns with the principles of emotion regulation theory. We demonstrate the applicability of emotion regulation theory outside of the laboratory in an important real-world context: financial markets.</p>
+        <p><strong>Presentations:</strong> Research in Behavioral Finance Conference 2024, German Finance Association (DGF) 2023, University of Montpellier, Aarhus University.</p>
+      </div>
+    </div>
+  </article>
+
+  <article class="paper">
+    <div class="paper-figure">
+      <!-- Figure: peer information -->
+      <svg viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="100" cy="80" r="14" fill="#2d6a4f"/>
+        <circle cx="60" cy="50" r="10" fill="#1e3a5f" opacity="0.5"/>
+        <circle cx="140" cy="50" r="10" fill="#1e3a5f" opacity="0.5"/>
+        <circle cx="50" cy="100" r="10" fill="#1e3a5f" opacity="0.5"/>
+        <circle cx="150" cy="100" r="10" fill="#1e3a5f" opacity="0.5"/>
+        <circle cx="100" cy="125" r="10" fill="#1e3a5f" opacity="0.5"/>
+        <line x1="100" y1="80" x2="60" y2="50" stroke="#5a6478" stroke-width="0.8" opacity="0.5"/>
+        <line x1="100" y1="80" x2="140" y2="50" stroke="#5a6478" stroke-width="0.8" opacity="0.5"/>
+        <line x1="100" y1="80" x2="50" y2="100" stroke="#5a6478" stroke-width="0.8" opacity="0.5"/>
+        <line x1="100" y1="80" x2="150" y2="100" stroke="#5a6478" stroke-width="0.8" opacity="0.5"/>
+        <line x1="100" y1="80" x2="100" y2="125" stroke="#5a6478" stroke-width="0.8" opacity="0.5"/>
+        <text x="100" y="83" font-size="9" fill="white" text-anchor="middle" font-weight="700">you</text>
+        <text x="100" y="25" font-size="9" fill="#1a1f2e" text-anchor="middle" font-weight="600">Peer Influence</text>
+      </svg>
+    </div>
+    <div class="paper-body">
+      <div class="paper-title">Conform to the Norm: Peer Information and Sustainable Investments</div>
+      <div class="paper-meta">
+        <span class="paper-tag">Framed field experiment</span>
+      </div>
+      <div class="paper-authors">with Max Grossmann, Andreas Hackethal, and Thomas Pauls</div>
+      <div class="paper-links">
+        <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4673139" target="_blank" rel="noopener">Current version</a>
+        <a href="https://www.socialscienceregistry.org/trials/10353" target="_blank" rel="noopener">Pre-registration</a>
+        <button onclick="showCite('cite-5')">Cite</button>
+      </div>
+      <button class="abstract-toggle" onclick="toggleAbstract(this)"><span class="arrow">▶</span> Abstract</button>
+      <div class="abstract">
+        <p>We conduct a field experiment with clients of a German universal bank to explore the impact of peer information on sustainable retail investments. Our results show that information about peers' inclination towards sustainable investing raises the amount allocated to stock funds labeled sustainable, when communicated during a buying decision. This effect is primarily driven by participants initially underestimating peers' propensity to invest sustainably.</p>
+        <p>Treated individuals indicate an increased interest in additional information on sustainable investments, primarily on risk and return expectations. However, when analyzing account-level portfolio holding data over time, we detect no spillover effects of peer information on later sustainable investment decisions.</p>
+        <p><strong>Presentations:</strong> German Finance Association (DGF) 2024, University of Montpellier.</p>
+      </div>
+    </div>
+  </article>
+
+  <div class="subsection-title">Work in Progress</div>
+
+  <article class="paper">
+    <div class="paper-figure">
+      <!-- Figure: delegation confidence -->
+      <svg viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="60" cy="80" r="18" fill="#1e3a5f" opacity="0.3"/>
+        <text x="60" y="84" font-size="9" fill="#1e3a5f" text-anchor="middle" font-weight="700">random</text>
+        <circle cx="140" cy="80" r="22" fill="#2d6a4f"/>
+        <text x="140" y="78" font-size="9" fill="white" text-anchor="middle" font-weight="700">chosen</text>
+        <text x="140" y="89" font-size="9" fill="white" text-anchor="middle" font-weight="700">↑ trust</text>
+        <text x="60" y="120" font-size="8" fill="#5a6478" text-anchor="middle">baseline</text>
+        <text x="140" y="120" font-size="8" fill="#5a6478" text-anchor="middle">overconfident</text>
+        <text x="100" y="25" font-size="9" fill="#1a1f2e" text-anchor="middle" font-weight="600">Delegated Choice</text>
+      </svg>
+    </div>
+    <div class="paper-body">
+      <div class="paper-title">Investor Confidence in Delegated Decisions</div>
+      <div class="paper-meta">
+        <span class="paper-tag">Lab experiments</span>
+      </div>
+      <div class="paper-authors">with Katrin Gödker</div>
+      <div class="paper-links">
+        <a href="https://www.socialscienceregistry.org/trials/10379" target="_blank" rel="noopener">Pre-registration</a>
+      </div>
+      <button class="abstract-toggle" onclick="toggleAbstract(this)"><span class="arrow">▶</span> Abstract</button>
+      <div class="abstract">
+        <p>We experimentally investigate the impact of delegation on investor beliefs and subsequent choices. Investors form more optimistic beliefs about the quality of their investments when they actively decide to whom they delegate, compared to a setting in which delegation is random. Further, investors who actively select their asset manager overestimate the quality of delegated investment decisions, i.e., the costly effort of their investment manager. Subsequently, these investors are overly reluctant to fire their asset manager, relative to a rational Bayesian agent. We present evidence that the mechanism involves motivated reasoning. Our results help explain stylized facts in financial markets.</p>
+        <p><strong>Presentations:</strong> Experimental Finance Conference 2023.</p>
+      </div>
+    </div>
+  </article>
+
+  <article class="paper">
+    <div class="paper-figure">
+      <!-- Figure: bank branches and solar -->
+      <svg viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg">
+        <rect x="30" y="70" width="40" height="55" fill="#1e3a5f" opacity="0.6" rx="2"/>
+        <polygon points="30,70 50,55 70,70" fill="#1e3a5f"/>
+        <rect x="42" y="90" width="6" height="10" fill="white"/>
+        <rect x="52" y="90" width="6" height="10" fill="white"/>
+        <line x1="80" y1="95" x2="105" y2="95" stroke="#c46a3d" stroke-width="1.5" stroke-dasharray="3,2"/>
+        <text x="92" y="88" font-size="7" fill="#c46a3d" text-anchor="middle">close</text>
+        <rect x="115" y="80" width="50" height="35" fill="#2d6a4f" opacity="0.6" rx="2"/>
+        <line x1="120" y1="86" x2="160" y2="86" stroke="white" stroke-width="0.5"/>
+        <line x1="120" y1="92" x2="160" y2="92" stroke="white" stroke-width="0.5"/>
+        <line x1="120" y1="98" x2="160" y2="98" stroke="white" stroke-width="0.5"/>
+        <line x1="120" y1="104" x2="160" y2="104" stroke="white" stroke-width="0.5"/>
+        <line x1="120" y1="110" x2="160" y2="110" stroke="white" stroke-width="0.5"/>
+        <text x="140" y="135" font-size="8" fill="#5a6478" text-anchor="middle">solar PV ↓</text>
+        <text x="50" y="140" font-size="8" fill="#5a6478" text-anchor="middle">branch</text>
+        <text x="100" y="25" font-size="9" fill="#1a1f2e" text-anchor="middle" font-weight="600">Banks & Green Investment</text>
+      </svg>
+    </div>
+    <div class="paper-body">
+      <div class="paper-title">Local Bank Presence and Household Investments into Green Infrastructure</div>
+      <div class="paper-meta">
+        <span class="paper-tag">Empirical study with archival data</span>
+      </div>
+      <div class="paper-authors">with Max Grossmann, Andreas Hackethal, and Thomas Pauls</div>
+      <button class="abstract-toggle" onclick="toggleAbstract(this)"><span class="arrow">▶</span> Abstract</button>
+      <div class="abstract">
+        <p>We show that the closure of bank branches results in fewer local installations of residential photovoltaic systems in Germany. The effect is driven by the closure of relationship banks, not transaction banks, indicating that better access to credit due to long-term relationships of borrowers with their banks is driving the result. Our findings indicate that banks' own lending products substitute rather than complement government subsidies for green investments. This implies a double-edged role of bank branches for household investments into sustainable infrastructure and has implications for policies that aim to promote green household lending.</p>
+        <p><strong>Presentations:</strong> Swiss Society for Financial Market Research (SGF) 2023.</p>
+      </div>
+    </div>
+  </article>
+
+  <div class="subsection-title">Other</div>
+
+  <article class="paper">
+    <div class="paper-figure">
+      <svg viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg">
+        <rect x="55" y="40" width="90" height="100" fill="white" stroke="#1e3a5f" stroke-width="1.5" rx="2"/>
+        <line x1="65" y1="55" x2="135" y2="55" stroke="#1e3a5f" stroke-width="3"/>
+        <line x1="65" y1="70" x2="125" y2="70" stroke="#5a6478" stroke-width="0.8"/>
+        <line x1="65" y1="78" x2="135" y2="78" stroke="#5a6478" stroke-width="0.8"/>
+        <line x1="65" y1="86" x2="120" y2="86" stroke="#5a6478" stroke-width="0.8"/>
+        <line x1="65" y1="100" x2="135" y2="100" stroke="#5a6478" stroke-width="0.8"/>
+        <line x1="65" y1="108" x2="130" y2="108" stroke="#5a6478" stroke-width="0.8"/>
+        <line x1="65" y1="116" x2="115" y2="116" stroke="#5a6478" stroke-width="0.8"/>
+        <circle cx="100" cy="135" r="6" fill="#c46a3d"/>
+        <text x="100" y="25" font-size="9" fill="#1a1f2e" text-anchor="middle" font-weight="600">PhD Thesis</text>
+      </svg>
+    </div>
+    <div class="paper-body">
+      <div class="paper-title">Sustainable Investment Preferences and How They Are Delegated</div>
+      <div class="paper-meta">
+        <span class="paper-tag">Doctoral thesis</span>
+        <span class="paper-tag" style="background: #fef3c7; color: #92400e;">★ Award</span>
+      </div>
+      <div class="paper-links">
+        <a href="https://cris.maastrichtuniversity.nl/en/publications/sustainable-investment-preferences-and-how-they-are-delegated" target="_blank" rel="noopener">Open access</a>
+        <a href="https://www.youtube.com/watch?v=Nsim69rsV5w&t=66s" target="_blank" rel="noopener">Video</a>
+      </div>
+      <button class="abstract-toggle" onclick="toggleAbstract(this)"><span class="arrow">▶</span> Abstract</button>
+      <div class="abstract">
+        <p>According to a recent amendment to the EU-wide MiFID II regulation, financial institutions are required to elicit their clients' sustainability preferences. Through this regulation change, sustainability has found a natural entry point into consultations between financial advisors and clients. This dissertation explores the impact of sustainability-related financial advice on investment behavior. Comprising three distinct chapters, it delves into the dynamics of financial advisors' role in promoting sustainable investments.</p>
+        <p>Overall, this dissertation shows that financial advisors may foster sustainable investing by providing information to clients during the buying decision, even though this information does not affect the sustainability of portfolios in the long-term. However, selling behavior is less influenced by new information on the sustainability of firms. The findings also reveal that financial advisors charge a premium for sustainable investing mandates and clients who cannot signal high financial literacy bear the burden of higher fees.</p>
+        <p><strong>Awards:</strong> FIR-PRI Finance & Sustainability Award for Best PhD Thesis · Netspar Thesis Award 2024 (Final Nominee)</p>
+      </div>
+    </div>
+  </article>
+
+  <article class="paper">
+    <div class="paper-figure">
+      <svg viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg">
+        <rect x="50" y="45" width="100" height="80" fill="white" stroke="#1e3a5f" stroke-width="1.5" rx="2"/>
+        <rect x="50" y="45" width="100" height="20" fill="#1e3a5f"/>
+        <text x="100" y="59" font-size="9" fill="white" text-anchor="middle" font-weight="700">VBA Journaal</text>
+        <line x1="60" y1="78" x2="140" y2="78" stroke="#5a6478" stroke-width="0.6"/>
+        <line x1="60" y1="86" x2="140" y2="86" stroke="#5a6478" stroke-width="0.6"/>
+        <line x1="60" y1="94" x2="140" y2="94" stroke="#5a6478" stroke-width="0.6"/>
+        <line x1="60" y1="102" x2="130" y2="102" stroke="#5a6478" stroke-width="0.6"/>
+        <line x1="60" y1="110" x2="140" y2="110" stroke="#5a6478" stroke-width="0.6"/>
+        <line x1="60" y1="118" x2="125" y2="118" stroke="#5a6478" stroke-width="0.6"/>
+        <text x="100" y="25" font-size="9" fill="#1a1f2e" text-anchor="middle" font-weight="600">Practitioner Article</text>
+      </svg>
+    </div>
+    <div class="paper-body">
+      <div class="paper-title">Elicitation of Sustainability Preferences under MiFID II: Influence on the Dynamics of Financial Advice</div>
+      <div class="paper-meta">
+        <span class="paper-venue">VBA Journaal · CFA Society Netherlands</span>
+      </div>
+      <div class="paper-links">
+        <a href="https://cfasociety.nl/uploads/vbajournaal/2024/TOT_VBA%20Journaal%20Winter%202023%20nr%20155.pdf" target="_blank" rel="noopener">Open access</a>
+      </div>
+    </div>
+  </article>
+
+  <div class="subsection-title">Referee Services</div>
+  <p style="color: var(--text-muted); line-height: 1.9;">Journal of Banking and Finance · Journal of Economic Behavior and Organization · Journal of Economic Dynamics and Control · European Journal of Finance · Journal of International Money and Finance · Frontiers in Behavioral Economics</p>
+</section>
+
+<section id="teaching">
+  <h2>Teaching</h2>
+  <p class="section-intro">Courses taught at Kühne Logistics University, the University of Bremen, and Maastricht University.</p>
+
+  <div class="rating-badge" style="display:none;">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+    Overall Student Rating: 8.7 / 10
+  </div>
+
+  <div class="subsection-title">Graduate Courses</div>
+  <div class="course-group">
+    <div class="course" onclick="toggleCourse(this)">
+      <div class="course-header">
+        <div class="course-header-text">
+          <div class="course-title">Financial Research Methods</div>
+          <div class="course-info">Maastricht University · Fall 2019</div>
+        </div>
+        <span class="course-arrow">▶</span>
+      </div>
+      <div class="course-desc">A compulsory course for students in the Master programs Sustainable Finance and Strategic Corporate Finance. Provides students with the necessary tools to understand, assess, and conduct research for both academic and business purposes. Students attend computer sessions during which they learn to use R to apply econometric techniques and analyze financial time series data.</div>
+    </div>
+    <div class="course" onclick="toggleCourse(this)">
+      <div class="course-header">
+        <div class="course-header-text">
+          <div class="course-title">Data Analytics</div>
+          <div class="course-info">Maastricht University · Fall 2020</div>
+        </div>
+        <span class="course-arrow">▶</span>
+      </div>
+      <div class="course-desc">Students are introduced to data analytical methods and learn to apply them, interpret findings, and communicate results. The course covers core techniques such as ANOVA and regression, as well as advanced methods including factor analysis, structural equation modelling, limited dependent variables, time series, and panel data analysis. A major part of the course is practical application in R.</div>
+    </div>
+    <div class="course" onclick="toggleCourse(this)">
+      <div class="course-header">
+        <div class="course-header-text">
+          <div class="course-title">Entrepreneurial Finance</div>
+          <div class="course-info">Maastricht University · Fall 2018, 2019, 2020, 2021</div>
+        </div>
+        <span class="course-arrow">▶</span>
+      </div>
+      <div class="course-desc">A compulsory course for students in the strategic corporate finance and entrepreneurship tracks. Covers challenges in valuing young companies with little hard information, alongside sources of financing for start-ups and SMEs, including bank lending, crowdfunding, angel investors, and venture capital. The course discusses the role of information asymmetries and how reality departs from Modigliani and Miller, with a focus on academic methodology and the interpretation of empirical estimations.</div>
+    </div>
+  </div>
+
+  <div class="subsection-title">Undergraduate Courses</div>
+  <div class="course-group">
+    <div class="course" onclick="toggleCourse(this)">
+      <div class="course-header">
+        <div class="course-header-text">
+          <div class="course-title">Behavioral Finance</div>
+          <div class="course-info">University of Bremen · Fall 2023, 2024, 2025</div>
+        </div>
+        <span class="course-arrow">▶</span>
+      </div>
+      <div class="course-desc">An introduction to behavioral finance, which seeks to explain anomalies in financial markets through the boundedly rational behavior of investors. The course covers limitations of neoclassical capital market theory, key concepts such as prospect theory, behavioral life-cycle and portfolio theory, and behavioral asset pricing models. It ends with practical applications in investment, corporate decision-making, and policy.</div>
+    </div>
+    <div class="course" onclick="toggleCourse(this)">
+      <div class="course-header">
+        <div class="course-header-text">
+          <div class="course-title">Options and Futures</div>
+          <div class="course-info">Maastricht University · Spring 2018</div>
+        </div>
+        <span class="course-arrow">▶</span>
+      </div>
+      <div class="course-desc">A compulsory course for students in the finance specialization of the International Business bachelor. Covers applications and valuation techniques for forward contracts, futures, options, and swaps, including the Binomial Option Pricing Model and Black and Scholes, alongside hedging strategies and practical applications such as pricing via replication and retrieving implied volatilities.</div>
+    </div>
+    <div class="course" onclick="toggleCourse(this)">
+      <div class="course-header">
+        <div class="course-header-text">
+          <div class="course-title">Introduction to Finance</div>
+          <div class="course-info">Maastricht University · Spring 2016</div>
+        </div>
+        <span class="course-arrow">▶</span>
+      </div>
+      <div class="course-desc">An introduction to the fundamentals of finance: risk and return, capital markets, raising capital, and pricing of stocks and bonds. The course covers net present value, capital budgeting, modern portfolio theory, cost of capital and WACC, and concludes with financial derivatives such as options and forward contracts.</div>
+    </div>
+  </div>
+
+  <p style="color: var(--text-muted); margin-top: 1rem; font-size: 0.95rem;">You can contact me directly for course material.</p>
+
+  <div class="subsection-title">Other Teaching</div>
+  <div class="course-group">
+    <div class="course" onclick="toggleCourse(this)">
+      <div class="course-header">
+        <div class="course-header-text">
+          <div class="course-title">Thesis Supervision</div>
+          <div class="course-info">Bachelor and Master level</div>
+        </div>
+        <span class="course-arrow">▶</span>
+      </div>
+      <div class="course-desc">
+        • Bachelor theses at the University of Bremen<br>
+        • Bachelor and Master theses at Maastricht University<br>
+        • Capstone advisor (supervising bachelor theses) at the University College Maastricht
+      </div>
+    </div>
+    <div class="course" onclick="toggleCourse(this)">
+      <div class="course-header">
+        <div class="course-header-text">
+          <div class="course-title">Private Teaching at Success Formula Maastricht</div>
+          <div class="course-info">Tutorials and exam preparation</div>
+        </div>
+        <span class="course-arrow">▶</span>
+      </div>
+      <div class="course-desc">
+        • Management of Operations and Product Development<br>
+        • Advanced Quantitative Methods
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <h2>Contact</h2>
+  <p class="section-intro">For research collaborations, course materials, or media inquiries.</p>
+  <div class="contact-grid">
+    <div class="contact-block">
+      <strong>Address</strong>
+      <p>Marten Laudi<br>
+      Kühne Logistics University<br>
+      Großer Grasbrook 17<br>
+      20457 Hamburg, Germany</p>
+    </div>
+    <div class="contact-block">
+      <strong>Email & Profiles</strong>
+      <p>
+        <a href="mailto:marten.laudi@klu.org">marten.laudi@klu.org</a><br>
+        <a href="https://scholar.google.de/citations?user=VymHVAYAAAAJ&hl=de" target="_blank" rel="noopener">Google Scholar</a><br>
+        <a href="https://papers.ssrn.com/sol3/cf_dev/AbsByAuth.cfm?per_id=3409261" target="_blank" rel="noopener">SSRN</a><br>
+        <a href="https://www.linkedin.com/in/marten-laudi-03668b129/" target="_blank" rel="noopener">LinkedIn</a>
+      </p>
+    </div>
+  </div>
+</section>
+
+<footer>© Marten Laudi 2026. All rights reserved.</footer>
+
+<!-- BibTeX modal -->
+<div class="modal-backdrop" id="modal" onclick="if(event.target===this)closeModal()">
+  <div class="modal">
+    <div class="modal-header">
+      <h3>BibTeX Citation</h3>
+      <button class="modal-close" onclick="closeModal()" aria-label="Close">×</button>
+    </div>
+    <div class="modal-body">
+      <pre class="bibtex" id="bibtex-content"></pre>
+      <button class="copy-btn" id="copy-btn" onclick="copyBibtex()">Copy to clipboard</button>
+    </div>
+  </div>
+</div>
+
+<!-- Hidden BibTeX entries -->
+<script type="application/json" id="citations">
+{
+  "cite-1": "@article{laudi2025advisors,\n  title   = {Do Financial Advisors Charge Sustainable Investors a Premium?},\n  author  = {Laudi, Marten and Smeets, Paul and Weitzel, Utz},\n  journal = {Management Science},\n  year    = {2025},\n  doi     = {10.1287/mnsc.2025.00232}\n}",
+  "cite-2": "@article{laudi2025temporal,\n  title   = {Temporal Framing of Tax Stimuli and Household Consumption},\n  author  = {Laudi, Marten and Pauls, Thomas},\n  journal = {Journal of Economic Behavior and Organization},\n  year    = {2025},\n  publisher = {Elsevier}\n}",
+  "cite-3": "@unpublished{laudi2025podcasts,\n  title   = {Do Podcasts Move the Stock Market?},\n  author  = {Laudi, Marten and Wecks, Janik Ole},\n  year    = {2025},\n  note    = {Working paper, SSRN 6583260}\n}",
+  "cite-4": "@unpublished{laudi2024dirty,\n  title   = {Dirty Money: The Impact of Negative ESG News Sentiment on Dividend Consumption},\n  author  = {Laudi, Marten and Pauls, Thomas and Smeets, Paul},\n  year    = {2024},\n  note    = {Working paper, SSRN 4574351}\n}",
+  "cite-5": "@unpublished{laudi2024conform,\n  title   = {Conform to the Norm: Peer Information and Sustainable Investments},\n  author  = {Laudi, Marten and Grossmann, Max and Hackethal, Andreas and Pauls, Thomas},\n  year    = {2024},\n  note    = {Working paper, SSRN 4673139}\n}"
+}
+</script>
+
+<script>
+  const citations = JSON.parse(document.getElementById('citations').textContent);
+
+  function toggleAbstract(btn) {
+    btn.classList.toggle('open');
+    btn.nextElementSibling.classList.toggle('open');
+  }
+
+  function toggleCourse(el) {
+    el.classList.toggle('open');
+  }
+
+  function showCite(id) {
+    document.getElementById('bibtex-content').textContent = citations[id] || '';
+    document.getElementById('modal').classList.add('open');
+    const btn = document.getElementById('copy-btn');
+    btn.textContent = 'Copy to clipboard';
+    btn.classList.remove('copied');
+  }
+
+  function closeModal() {
+    document.getElementById('modal').classList.remove('open');
+  }
+
+  function copyBibtex() {
+    const text = document.getElementById('bibtex-content').textContent;
+    const btn = document.getElementById('copy-btn');
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(() => {
+        btn.textContent = '✓ Copied';
+        btn.classList.add('copied');
+      });
+    } else {
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand('copy');
+      document.body.removeChild(ta);
+      btn.textContent = '✓ Copied';
+      btn.classList.add('copied');
+    }
+  }
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeModal();
+  });
+
+  document.querySelectorAll('.nav-links a').forEach(a => {
+    a.addEventListener('click', () => {
+      document.querySelector('.nav-links').classList.remove('open');
+    });
+  });
+</script>
+
+</body>
+</html>
